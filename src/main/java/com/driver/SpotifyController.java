@@ -14,14 +14,14 @@ public class SpotifyController {
     @PostMapping("/add-user")
     public String createUser(@RequestParam(name = "name") String name, String mobile){
         //create the user with given name and number
-        User user = spotifyService.createUser(name, mobile);
+        spotifyService.createUser(name, mobile);
         return "Success";
     }
 
     @PostMapping("/add-artist")
     public String createArtist(@RequestParam(name = "name") String name){
         //create the artist with given name
-        Artist artist = spotifyService.createArtist(name);
+        spotifyService.createArtist(name);
         return "Success";
     }
 
@@ -29,7 +29,7 @@ public class SpotifyController {
     public String createAlbum(@RequestParam(name = "title") String title, String artistName){
         //If the artist does not exist, first create an artist with given name
         //Create an album with given title and artist
-        Album album = spotifyService.createAlbum(title, artistName);
+        spotifyService.createAlbum(title, artistName);
         return "Success";
     }
 
@@ -37,7 +37,7 @@ public class SpotifyController {
     public String createSong(String title, String albumName, int length) throws Exception{
         //If the album does not exist in database, throw "Album does not exist" exception
         //Create and add the song to respective album
-        Song song = spotifyService.createSong(title, albumName, length);
+        spotifyService.createSong(title, albumName, length);
         return "Success";
     }
 

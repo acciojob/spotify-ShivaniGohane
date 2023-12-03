@@ -2,7 +2,6 @@ package com.driver;
 
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,52 +12,43 @@ public class SpotifyService {
     SpotifyRepository spotifyRepository = new SpotifyRepository();
 
     public User createUser(String name, String mobile){
-        User user = spotifyRepository.createUser(name, mobile);
-        return user;
+        return spotifyRepository.createUser(name , mobile);
     }
 
     public Artist createArtist(String name) {
-        Artist artist = spotifyRepository.createArtist(name);
-        return artist;
+        return spotifyRepository.createArtist(name);
     }
 
     public Album createAlbum(String title, String artistName) {
-        Album album = spotifyRepository.createAlbum(title, artistName);
-        return album;
+        return spotifyRepository.createAlbum(title , artistName);
     }
 
     public Song createSong(String title, String albumName, int length) throws Exception {
-        Song song = spotifyRepository.createSong(title, albumName, length);
-        return song;
+        return spotifyRepository.createSong(title , albumName , length);
     }
 
     public Playlist createPlaylistOnLength(String mobile, String title, int length) throws Exception {
-        Playlist playlist = spotifyRepository.createPlaylistOnLength(mobile, title, length);
-        return playlist;
+        return spotifyRepository.createPlaylistOnLength(mobile , title , length);
     }
 
     public Playlist createPlaylistOnName(String mobile, String title, List<String> songTitles) throws Exception {
-        Playlist playlist = spotifyRepository.createPlaylistOnName(mobile, title, songTitles);
-        return playlist;
+        return spotifyRepository.createPlaylistOnName(mobile , title , songTitles);
+
     }
 
     public Playlist findPlaylist(String mobile, String playlistTitle) throws Exception {
-        Playlist playlist = spotifyRepository.findPlaylist(mobile, playlistTitle);
-        return playlist;
+        return spotifyRepository.findPlaylist(mobile , playlistTitle);
     }
 
     public Song likeSong(String mobile, String songTitle) throws Exception {
-        Song song = spotifyRepository.likeSong(mobile, songTitle);
-        return song;
+        return spotifyRepository.likeSong(mobile , songTitle);
     }
 
     public String mostPopularArtist() {
-        String popularArtist = spotifyRepository.mostPopularArtist();
-        return popularArtist;
+        return spotifyRepository.mostPopularArtist();
     }
 
     public String mostPopularSong() {
-        String popularSong = spotifyRepository.mostPopularSong();
-        return popularSong;
+        return spotifyRepository.mostPopularSong();
     }
 }

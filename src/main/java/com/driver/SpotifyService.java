@@ -2,6 +2,7 @@ package com.driver;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,42 +13,52 @@ public class SpotifyService {
     SpotifyRepository spotifyRepository = new SpotifyRepository();
 
     public User createUser(String name, String mobile){
-
+        User user = spotifyRepository.createUser(name, mobile);
+        return user;
     }
 
     public Artist createArtist(String name) {
-
+        Artist artist = spotifyRepository.createArtist(name);
+        return artist;
     }
 
     public Album createAlbum(String title, String artistName) {
-
+        Album album = spotifyRepository.createAlbum(title, artistName);
+        return album;
     }
 
     public Song createSong(String title, String albumName, int length) throws Exception {
-
+        Song song = spotifyRepository.createSong(title, albumName, length);
+        return song;
     }
 
     public Playlist createPlaylistOnLength(String mobile, String title, int length) throws Exception {
-
+        Playlist playlist = spotifyRepository.createPlaylistOnLength(mobile, title, length);
+        return playlist;
     }
 
     public Playlist createPlaylistOnName(String mobile, String title, List<String> songTitles) throws Exception {
-
+        Playlist playlist = spotifyRepository.createPlaylistOnName(mobile, title, songTitles);
+        return playlist;
     }
 
     public Playlist findPlaylist(String mobile, String playlistTitle) throws Exception {
-
+        Playlist playlist = spotifyRepository.findPlaylist(mobile, playlistTitle);
+        return playlist;
     }
 
     public Song likeSong(String mobile, String songTitle) throws Exception {
-
+        Song song = spotifyRepository.likeSong(mobile, songTitle);
+        return song;
     }
 
     public String mostPopularArtist() {
-
+        String popularArtist = spotifyRepository.mostPopularArtist();
+        return popularArtist;
     }
 
     public String mostPopularSong() {
-
+        String popularSong = spotifyRepository.mostPopularSong();
+        return popularSong;
     }
 }
